@@ -95,6 +95,14 @@ header {
   opacity: 0;
 }
 
+[type='radio'] ~ label {
+  color: #202142;
+}
+
+[type='radio']:hover ~ label {
+  color: #fff;
+}
+
 [type='radio']:checked ~ label {
   background: #ff6a95;
   color: #fff;

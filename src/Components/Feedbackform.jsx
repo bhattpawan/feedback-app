@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Card from './Shared/Card';
 import Button from './Shared/Button';
+import RatingSelect from './Shared/RatingSelect';
 
-const Feedbackform = () => {
+const Feedbackform = ({ handleAdd }) => {
   const [text, setText] = useState('');
+  const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
@@ -22,11 +24,20 @@ const Feedbackform = () => {
     setText(val);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text.trim().length > 10) {
+      const newFeedback = { text: text, rating: rating };
+      handleAdd(newFeedback);
+      setText('');
+    }
+  };
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Your feedback helps us serve you better</h2>
-        {/* To do - Rating Select Component */}
+        <RatingSelect select={(rating) => setRating(rating)} />
         <div className='input-group'>
           <input
             type='text'
