@@ -18,7 +18,7 @@ ul {
 }
 
 .container {
-  max-width: 768px;
+  max-width: 900px;
   margin: auto;
   padding: 0 20px;
 }
@@ -197,8 +197,10 @@ input:focus {
 }
 
 .about-link {
-  display: flex;
-  justify-content: flex-end;
+  position: fixed;
+  left: 95%;
+  bottom: 20px;
+  z-index: 2;
 }
 
 .about-link a {
@@ -206,6 +208,13 @@ input:focus {
   cursor: pointer;
 }
 
+.about .card a {
+  display: inline-block;
+  color: #f4f4f4;
+  margin-top: 20px;
+}
+
+.about .card a:hover,
 .about-link a:hover {
   color: #ff6a95;
 }
