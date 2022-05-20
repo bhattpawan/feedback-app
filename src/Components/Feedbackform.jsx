@@ -30,6 +30,7 @@ const Feedbackform = ({ handleAdd }) => {
       const newFeedback = { text: text, rating: rating };
       handleAdd(newFeedback);
       setText('');
+      setRating(10);
     }
   };
 
