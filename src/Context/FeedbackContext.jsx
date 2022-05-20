@@ -6,8 +6,22 @@ const FeedbackContext = createContext();
 export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState(FeedbackData);
 
+  const handleDelete = (itemId) => {
+    const updated = feedback.filter((item) => {
+      return item.id !== itemId;
+    });
+    setFeedback(updated);
+  };
+
+  const handleAdd = (newFeedback) => {
+    newFeedback.id = feedback.length + 1;
+    setFeedback([...feedback, newFeedback]);
+  };
+
   return (
-    <FeedbackContext.Provider value={{ feedback: feedback }}>{children}</FeedbackContext.Provider>
+    <FeedbackContext.Provider value={{ feedback, handleDelete, handleAdd }}>
+      {children}
+    </FeedbackContext.Provider>
   );
 };
 

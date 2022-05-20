@@ -1,4 +1,9 @@
-const FeedbackStats = ({ feedback }) => {
+import { useContext } from 'react';
+import FeedbackContext from '../Context/FeedbackContext';
+
+const FeedbackStats = () => {
+  const { feedback } = useContext(FeedbackContext);
+
   // Calculate total number of reviews
   const count = feedback.length;
   // Calculate average

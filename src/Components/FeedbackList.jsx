@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import FeedbackItem from './FeedbackItem';
 import FeedbackContext from '../Context/FeedbackContext';
 
-const FeedbackList = ({ handleDelete }) => {
-  const { feedback } = useContext(FeedbackContext);
+const FeedbackList = () => {
+  const { feedback, handleDelete } = useContext(FeedbackContext);
 
   if (!feedback || feedback.length === 0) {
     return;
